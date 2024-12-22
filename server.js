@@ -18,7 +18,10 @@ app.use(express.json({ limit: '50mb' })); // Handle large JSON payloads
 app.use(express.urlencoded({ limit: '50mb', extended: true })); // Handle large URL-encoded payloads
 
 // CORS configuration: allow frontend to access backend
-app.use(cors({ origin: process.env.CORS_ORIGIN || 'http://localhost:3000' })); // CORS configuration
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || 'https://mern-gallery-frontend.onrender.com'
+}));
+
 
 // Set static folder for uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
